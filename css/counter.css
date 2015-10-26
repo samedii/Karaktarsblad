@@ -1,0 +1,38 @@
+[counter] {
+	height: 46px;
+    width: 60px;
+    margin-left: -20px;
+}
+.c3-target-done path {
+	fill: #007aff;
+}
+.c3-target-not-done path {
+	fill: #E4E4CD
+}
+.counter {
+	position: relative;
+}
+.fraction {
+    text-align: center;
+    position: absolute;
+    top: 13px;
+    left: 22px;
+    font-size: 15px;
+}
+.fraction>span {
+	position: relative;
+}
+.fraction .fa-chevron-down, .fraction .fa-chevron-up {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.fraction .fa-chevron-up {
+	top: -20px;
+}
+.fraction .fa-chevron-down {
+	bottom: -16px;
+}
+.semi-transparent {
+	opacity: 0.4;
+}

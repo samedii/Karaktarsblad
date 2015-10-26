@@ -1,0 +1,27 @@
+<div class="scrollable saveload" ng-controller="SaveLoadCtrl">
+    <div class="scrollable-content">
+        <div class="section">
+            <h2>Spara eller ladda</h2>
+            <div>
+                <label>Nyckelord:</label>
+                <input pu-elastic-input ng-model="state.keyword" placeholder="Exempel" />
+            </div>
+            <div>
+                <button class="btn btn-primary" ng-click="save()">
+                    Spara
+                </button>
+                <button class="btn btn-primary" ng-click="load()">
+                    Ladda
+                </button>
+                <button class="btn btn-warning" ng-click="clear()">
+                    Rensa
+                </button>
+            </div>
+        </div>
+        <div class="section">
+            <p>Under nyckelordet "Exempel" finns ett exempelblad som du kan ladda för att se hur karaktärsbladet fungerar.</p>
+            <p>Du kan swipe:a höger för att få fram menyn.</p>
+            <p>Ändringar sparas enbart lokalt om du inte klickar på spara.</p>
+        </div>
+    </div>
+</div>

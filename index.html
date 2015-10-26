@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Karaktärsblad</title>
+
+    <link rel="stylesheet" href="bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-hover.min.css" />
+    <link rel="stylesheet" href="bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
+    <link rel="stylesheet" href="bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-desktop.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">
+    <link rel="stylesheet" href="css/counter.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-sanitize.min.js"></script>
+
+    <script src="bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+    <!-- Required to use $touch, $swipe, $drag and $translate services -->
+    <script src="bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="bower_components/autosize/dist/autosize.min.js"></script>
+    <script src="bower_components/angular-elastic-input/dist/angular-elastic-input.min.js"></script>
+    <script src="js/CharacterSheet.js"></script>
+    <script src="js/contenteditable.js"></script>
+    <script src="js/autosize.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/SaveLoadCtrl.js"></script>
+    <script src="js/CharacterSheetCtrl.js"></script>
+    <script src="js/CharacteristicsCtrl.js"></script>
+    <script src="js/InjuriesCtrl.js"></script>
+</head>
+<body
+    ng-app="CharacterSheet"
+    ng-controller="CharacterSheetCtrl">
+    <!--ui-prevent-touchmove-defaults-->
+
+    <div ng-include="'partials/menu.html'"
+        class="sidebar sidebar-left"></div>
+
+    <div
+        ui-toggle="uiSidebarLeft"
+        ng-show="state.keyword"
+        style="position: absolute; top: 10px; right: 10px; z-index: 999;"
+        class="visible-xs-block">
+        <i class="fa fa-bars fa-2x"></i>
+    </div>
+
+    <div class="app"
+        ui-swipe-right='Ui.turnOn("uiSidebarLeft")'
+        ui-swipe-left='Ui.turnOff("uiSidebarLeft")'>
+
+        <div class="app-body" ng-class="{loading: loading}">
+            <div ng-show="loading" class="app-content-loading"> <i class="fa fa-spinner fa-spin loading-spinner"></i>
+            </div>
+            <div class="app-content">
+                <ng-view></ng-view>
+            </div>
+        </div>
+
+    </div>
+
+    <div ui-yield-to="modals"></div>
+
+</body>
+</html>

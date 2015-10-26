@@ -1,0 +1,100 @@
+@font-face {
+    font-family: "titleFont";
+    src: url('fonts/EG_Dragon_Caps.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "textFont";
+    src: url('fonts/Jellyka_Estrya_Handwriting.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "titleFont";
+}
+h1 {
+    line-height: 60px;
+}
+h2 {
+    line-height: 50px;
+}
+h3 {
+    line-height: 44px;
+}
+h4 {
+    line-height: 36px;
+}
+h5 {
+    line-height: 30px;
+}
+h6 {
+    line-height: 26px;
+}
+label {
+    font-family: "titleFont";
+    font-size: 10px;
+}
+th {
+    font-family: "titleFont";
+    font-size: 10px;
+}
+.app-name {
+    line-height: 50px;
+    padding: 20px 10px;
+}
+textarea {
+    font-family: inherit;
+    font-size: 12px;
+    display: inline;
+    border: 0 transparent;
+    background-color: transparent;
+    font-size: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 4px;
+    overflow: hidden;
+    width: 100%;
+    resize: none;
+}
+input {
+    border: none;
+    padding: 4px;
+}
+input[type="checkbox"] {
+    margin-top: 4px;
+}
+.sort-dropdown .btn {
+	padding-right: 0;
+	padding-left: 0;
+}
+.item-header h4, .item-header h6 {
+	margin-bottom: 0;
+}
+.list-group-item-heading h5, .list-group-item-heading h6 {
+    margin-bottom: 0;
+}
+.avoid-break {
+    display: inline-block;
+}
+.btn-group {
+    padding-top: 6px;
+}
+#container {
+    position:relative;
+}
+#container>p {
+    height: 150px;
+    overflow: hidden;
+}
+#gradient {
+    position:absolute;
+    right:0; top:0; left:0; bottom: 0;
+    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 70%, rgba(255,255,255,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(70%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 70%,rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(top,  rgba(255,255,255,0) 70%,rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(255,255,255,0) 70%,rgba(255,255,255,1) 100%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 70%,rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
+}

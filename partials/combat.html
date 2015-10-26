@@ -1,0 +1,287 @@
+<div class="scrollable combat" ng-controller="CombatCtrl">
+    <div class="scrollable-content">
+        <div class="section">
+        <h1>Strid</h1>
+            <h6 class="visible-xs-inline pull-right"><a ui-turn-on="modalExpectedValues">Väntevärden</a></h6>
+            <div class="pull-left">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th>Marginal</th>
+                            <th>Grad</th>
+                            <th>Mod<span class="visible-xs-inline">.</span><span class="hidden-xs">ifikation</span></th>
+                            <th>Skador</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Lindrig</td>
+                            <td></td>
+                            <td>
+                                <input type="checkbox" disabled="disabled" ng-checked="checkboxes[0]<3">
+                                <input type="checkbox" disabled="disabled" ng-checked="checkboxes[0]<2">
+                                <input type="checkbox" disabled="disabled" ng-checked="checkboxes[0]<1">
+                            </td>
+                            <td>
+                                <div ng-click="state.injuries.push({
+                                        level:1,
+                                        progress:{numerator:0,denominator:1},
+                                        added:moment().format()
+                                    })">
+                                    <i class="fa fa-plus-square"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Måttlig</td>
+                            <td>-½</td>
+                            <td>
+                                <input type="checkbox" disabled="disabled" ng-checked="checkboxes[1]<2">
+                                <input type="checkbox" disabled="disabled" ng-checked="checkboxes[1]<1">
+                            </td>
+                            <td>
+                                <div ng-click="state.injuries.push({
+                                        level:2,
+                                        progress:{numerator:0,denominator:2},
+                                        added:moment().format()
+                                    })">
+                                    <i class="fa fa-plus-square"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Allvarlig</td>
+                            <td>-1</td>
+                            <td>
+                                <input type="checkbox" disabled="disabled" ng-checked="checkboxes[2]<1">
+                            </td>
+                            <td>
+                                <div ng-click="state.injuries.push({
+                                        level:3,
+                                        progress:{numerator:0,denominator:3},
+                                        added:moment().format()
+                                    })">
+                                    <i class="fa fa-plus-square"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>Dödlig*</td>
+                            <td>-1</td>
+                            <td>
+                                <input type="checkbox" disabled="disabled" ng-checked="checkboxes[3]<1">
+                            </td>
+                            <td>
+                                <div ng-click="state.injuries.push({
+                                        level:4,
+                                        progress:{numerator:0,denominator:4},
+                                        added:moment().format()
+                                    })">
+                                    <i class="fa fa-plus-square"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td>Död</td>
+                            <td></td>
+                            <td>
+                                <input type="checkbox" disabled="disabled" ng-checked="checkboxes[4]<1">
+                            </td>
+                            <td>
+                                <div ng-click="state.injuries.push({
+                                        level:5,
+                                        progress:{numerator:0,denominator:5},
+                                        added:moment().format()
+                                    })">
+                                    <i class="fa fa-plus-square"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                *Börjar slå för att överleva.
+                <span class="visible-xs-inline"><br/>Mod. är den föreslagna modifikationen för fortsatta slag (läggs ej ihop).</span>
+            </div>
+            <div class="hidden-xs pull-left" style="margin-left: 15px">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Tärningar</th>
+                            <th>Väntevärde</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>x</td>
+                            <td>
+                                2<sup>x</sup>
+                                -1
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+<!-- onödigt, behöver inte veta när de slåss
+        <div class="list-group">
+            <div class="list-group-item" ng-init="orderByField='added'">
+                <div class="row item-header">
+                    <h6 class="col-xs-5 col-sm-6 col-md-8 col-lg-8">
+                        Stridsstil
+                    </h6>
+                    <h6 class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                        Attack
+                    </h6>
+                    <h6 class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+                        Försvar
+                    </h6>
+                </div>
+            </div>
+            <div ng-repeat="item in state.combatstyles" class="list-group-item">
+                <div class="list-group-item-heading">
+                    <div class="row">
+                        <h6 class="col-xs-5 col-sm-6 col-md-8 col-lg-8">
+                            <textarea autosize ng-model="item.name" rows="1" placeholder="Namn"></textarea>
+                        </h6>
+                        <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                        <span ng-show="item.attack>0">+</span><input pu-elastic-input type="text" placeholder="0" ng-model="item.attack" style="margin-top: 9px" />
+                        </div>
+                        <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+                            <span ng-show="item.defense>0">+</span><input pu-elastic-input type="text" placeholder="0" ng-model="item.defense" style="margin-top: 9px" />
+
+                            <div class="btn-group pull-right">
+                                <a ui-turn-on="itemDropdown{{$index}}" class='btn'>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </a>
+                                <ul
+                                    ui-state="itemDropdown{{$index}}"
+                                    class="dropdown-menu"
+                                    ui-outer-click="Ui.turnOff('itemDropdown' + $index)"
+                                    ui-outer-click-if="Ui.active('itemDropdown' + $index)"
+                                    role="menu"
+                                    ui-show="itemDropdown{{$index}}"
+                                    ui-turn-off="itemDropdown{{$index}}">
+
+                                    <li ng-click="state.combatstyles.splice($index,1)">
+                                        <a>Ta bort</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="list-group">
+            <div class="list-group-item" ng-init="newItem={}">
+                <div class="list-group-item-heading">
+                    <div class="row">
+                        <h6 class="col-xs-5 col-sm-6 col-md-8 col-lg-8">
+                            <textarea autosize ng-model="newItem.name" ng-blur="newItem.modified = moment().format()" rows="1" placeholder="Namn"></textarea>
+                        </h6>
+                        <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                        <span ng-show="newItem.attack>0">+</span><input pu-elastic-input type="text" placeholder="0" ng-model="newItem.attack" style="margin-top: 9px" />
+                        </div>
+                        <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+                            <span ng-show="newItem.defense>0">+</span><input pu-elastic-input type="text" placeholder="0" ng-model="newItem.defense" style="margin-top: 9px" />
+
+                            <div class="btn-group pull-right">
+                                <span ng-click="
+                                    newItem.added = moment().format();
+                                    newItem.modified = moment().format();
+                                    newItem.showDetails = true;
+                                    state.combatstyles.push(newItem);
+                                    newItem={}"
+
+                                    class="btn">
+                                    <i class="fa fa-plus-square"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <!-- räknare i strid, hur länge saker räcker och så? -->
+    </div>
+</div>
+
+
+<div ui-content-for="modals">
+    <div class="modal" ui-if="modalExpectedValues" ui-state="modalExpectedValues">
+        <div class="modal-backdrop in"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close"
+                  ui-turn-off="modalExpectedValues">&times;</button>
+                    <h4 class="modal-title">Väntevärden</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Tärningar</th>
+                                <th>Väntevärde</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td>x</td>
+                                <td>
+                                    2<sup>x</sup>
+                                    -1
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button ui-turn-off="modalExpectedValues" class="btn btn-default">Stäng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

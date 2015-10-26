@@ -1,0 +1,39 @@
+<div class="scrollable">
+    <div class="scrollable-content">
+        <div class="section">
+            <h1>Journal</h1>
+        </div>
+        <div class="list-group">
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    <div class="row">
+                        <div class="col-md-12">
+                            Rhimmelklyve
+                            <div class="btn-group pull-right">
+                                <a ui-turn-on='myDropdown' class='btn'> <i class="fa fa-ellipsis-v"></i>
+                                </a>
+                                <ul
+                                    ui-state="myDropdown"
+                                    class="dropdown-menu"
+                                    ui-outer-click="Ui.turnOff('myDropdown')"
+                                    ui-outer-click-if="Ui.active('myDropdown')"
+                                    role="menu"
+                                    ui-show="myDropdown"
+                                    ui-turn-off="myDropdown">
+
+                                    <li ng-click="state.showDetails = !state.showDetails">
+                                        <a>Visa/göm detaljer</a>
+                                    </li>
+                                    <li>
+                                        <a>Ta bort</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </h4>
+                <p ng-show="state.showDetails" class="list-group-item-text">Min beskrivande text.</p>
+            </div>
+        </div>
+    </div>
+</div>

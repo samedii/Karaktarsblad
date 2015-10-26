@@ -1,0 +1,14 @@
+<div class="counter"
+	ng-click="showFraction = true"
+    ui-outer-click="showFraction = false"
+    ui-outer-click-if="showFraction">
+	<span id="chart" ng-class="{'semi-transparent': showFraction}"></span>
+
+	<div ng-show="showFraction" class="fraction">
+		<span>
+			<a ng-click="counter.numerator=counter.numerator+1"><i class="fa fa-chevron-up"></i></a>{{counter.numerator}}<a ng-click="counter.numerator=counter.numerator-1"><i class="fa fa-chevron-down"></i></a>
+		</span>/<span>
+			<a ng-click="counter.denominator=counter.denominator+1"><i class="fa fa-chevron-up"></i></a>{{counter.denominator}}<a ng-click="counter.denominator=counter.denominator-1"><i class="fa fa-chevron-down"></i></a>
+		</span>
+	</div>
+</div>
