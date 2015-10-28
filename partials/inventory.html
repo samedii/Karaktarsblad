@@ -122,7 +122,7 @@
                         </div>
                     </div>
                 </div>
-                <textarea ng-if="item.showDetails" autosize ng-model="item.details" ng-blur="item.modified = moment().format()" rows="1" class="list-group-item-text"></textarea>
+                <textarea ng-if="item.showDetails" autosize placeholder="Beskrivning..." ng-model="item.details" ng-blur="item.modified = moment().format()" rows="1" class="list-group-item-text"></textarea>
             </div>
 
         </div>
@@ -139,7 +139,7 @@
                                 <span ng-click="
                                     newItem.added = moment().format();
                                     newItem.modified = moment().format();
-                                    newItem.showDetails = true;
+                                    newItem.showDetails = newItem.details == true;
                                     state.inventory.push(newItem);
                                     newItem = {}"
 
