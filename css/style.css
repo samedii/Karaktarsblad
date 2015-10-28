@@ -98,3 +98,6 @@ input[type="checkbox"] {
     background: linear-gradient(to bottom,  rgba(255,255,255,0) 70%,rgba(255,255,255,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
 }
+.outlineEmpty {
+    border: 1px dashed #007aff;
+}

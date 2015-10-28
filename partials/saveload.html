@@ -20,8 +20,42 @@
         </div>
         <div class="section">
             <p>Under nyckelordet "Exempel" finns ett exempelblad som du kan ladda för att se hur karaktärsbladet fungerar.</p>
-            <p>Du kan swipe:a höger för att få fram menyn.</p>
             <p>Ändringar sparas enbart lokalt om du inte klickar på spara.</p>
+            <p class="visible-xs-inline">Du klicka på ikonen högst upp till höger för att få fram menyn.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal"
+    ui-if='modalKeywordNotFound'
+    ui-state='modalKeywordNotFound'>
+    <div class="modal-backdrop in"></div>
+    <div class="modal-dialog"
+        ui-outer-click="Ui.turnOff('modalKeywordNotFound')"
+        ui-outer-click-if="Ui.active('modalKeywordNotFound')">
+        <div class="modal-content">
+            <div class="modal-header">
+                Hittade inget spar på nyckelordet: {{state.keyword}}.
+                <button class="close"
+                ui-turn-off="modalKeywordNotFound">&times;</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal"
+    ui-if='modalSaveSuccess'
+    ui-state='modalSaveSuccess'>
+    <div class="modal-backdrop in"></div>
+    <div class="modal-dialog"
+        ui-outer-click="Ui.turnOff('modalSaveSuccess')"
+        ui-outer-click-if="Ui.active('modalSaveSuccess')">
+        <div class="modal-content">
+            <div class="modal-header">
+                Lyckades spara under nyckelordet: {{state.keyword}}.
+                <button class="close"
+                ui-turn-off="modalSaveSuccess">&times;</button>
+            </div>
         </div>
     </div>
 </div>

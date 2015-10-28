@@ -1,15 +1,15 @@
 var app = angular.module('CharacterSheet', [
     'ngRoute',
     'mobile-angular-ui',
-    'mobile-angular-ui.gestures',
+    //'mobile-angular-ui.gestures',
     'autosize',
     'contenteditable',
     'puElasticInput'
 ]);
 
-app.run(function($transform) {
+/*app.run(function($transform) {
     window.$transform = $transform;
-});
+});*/
 
 app.config(function($routeProvider) {
 

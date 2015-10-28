@@ -1,4 +1,6 @@
-app.controller('SaveLoadCtrl', function($scope, $http, $location){
+app.controller('SaveLoadCtrl', function($scope, $http, $location, SharedState){
+    SharedState.initialize($scope, 'modalKeywordNotFound');
+    SharedState.initialize($scope, 'modalSaveSuccess');
 
     $scope.load = function() {
 
@@ -10,6 +12,11 @@ app.controller('SaveLoadCtrl', function($scope, $http, $location){
                 $scope.$apply(function() {
                     $.extend($scope.state,data);
                     $location.path('/intro');
+                });
+            })
+            .fail(function(jqxhr, textStatus, error) {
+                $scope.$apply(function() {
+                    SharedState.turnOn('modalKeywordNotFound');
                 });
             });
 
@@ -23,13 +30,15 @@ app.controller('SaveLoadCtrl', function($scope, $http, $location){
                 state: JSON.stringify($scope.state)
             },
             function success(data, textStatus, jqXHR) {
-
+                $scope.$apply(function() {
+                    SharedState.turnOn('modalSaveSuccess');
+                });
             });
     };
 
     $scope.clear = function() {
-        $scope.state = {};
         localStorage.clear();
+        location.reload();
     };
 
 });
