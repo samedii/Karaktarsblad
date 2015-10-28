@@ -16,6 +16,12 @@ angular.module('contenteditable', ['ngSanitize'])
                 scope.$evalAsync(read);
             });
 
+            if(navigator.userAgent.indexOf('Safari') > -1) {
+                element.on('click', function() {
+                    this.focus();
+                });
+            }
+
             // Write data to the model
             function read() {
                 var html = element.html();
