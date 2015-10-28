@@ -16,7 +16,13 @@ angular.module('contenteditable', ['ngSanitize'])
                 scope.$evalAsync(read);
             });
 
-            if(navigator.userAgent.indexOf('Safari') > -1) {
+            var
+                ua = window.navigator.userAgent,
+                iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i),
+                webkit = !!ua.match(/WebKit/i),
+                iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+
+            if(iOSSafari) {
                 element.on('click', function() {
                     this.focus();
                 });
