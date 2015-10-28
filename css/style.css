@@ -101,3 +101,7 @@ input[type="checkbox"] {
 .outlineEmpty {
     border: 1px dashed #007aff;
 }
+[contenteditable] {
+    -webkit-user-select: text;
+    user-select: text;
+}
