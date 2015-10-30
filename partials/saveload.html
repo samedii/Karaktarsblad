@@ -14,7 +14,7 @@
                     Ladda
                 </button>
                 <button class="btn btn-warning" ng-click="clear()">
-                    Rensa
+                    Rensa/Skapa
                 </button>
             </div>
         </div>
@@ -34,7 +34,7 @@
         ui-outer-click="Ui.turnOff('modalKeywordNotFound')"
         ui-outer-click-if="Ui.active('modalKeywordNotFound')">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-body">
                 Hittade inget spar på nyckelordet: {{state.keyword}}.
                 <button class="close"
                 ui-turn-off="modalKeywordNotFound">&times;</button>
@@ -51,7 +51,7 @@
         ui-outer-click="Ui.turnOff('modalSaveSuccess')"
         ui-outer-click-if="Ui.active('modalSaveSuccess')">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-body">
                 Lyckades spara under nyckelordet: {{state.keyword}}.
                 <button class="close"
                 ui-turn-off="modalSaveSuccess">&times;</button>

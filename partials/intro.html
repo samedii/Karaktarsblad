@@ -2,7 +2,7 @@
 	<div class="scrollable-content">
 		<div class="list-group text-center">
 			<div class="list-group-item">
-				<h2 contenteditable ng-model="state.name" strip-br="true" ng-class="{outlineEmpty: !state.name}"></h2>
+				<h2 strip-br="true" ng-class="{'empty-input': !state.name}" ui-turn-on="editNameModal">{{state.name}}</h2>
 				<div style="width: 100%; text-align: center">
 					<div id="container">
 						<p style="white-space: pre-wrap">{{state.description}}</p>

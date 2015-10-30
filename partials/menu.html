@@ -1,10 +1,11 @@
 <div class="scrollable">
-    <h1 contenteditable ng-model="state.name" strip-br="true" class="scrollable-header app-name"></h1>
+    <h1 strip-br="true" class="scrollable-header app-name" ng-class="{'empty-input': !state.name}" ui-turn-on="editNameModal">{{state.name}}</h1>
     <div class="scrollable-content">
         <div class="list-group" ui-turn-off='uiSidebarLeft'>
+        <!--
             <a class="list-group-item" href="#/intro">
                 Intro <i class="fa fa-chevron-right pull-right"></i>
-            </a>
+            </a>-->
             <a class="list-group-item" href="#/description">
                 Beskrivning <i class="fa fa-chevron-right pull-right"></i>
             </a>
