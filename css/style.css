@@ -27,9 +27,11 @@ h4 {
 }
 h5 {
     line-height: 30px;
+    padding-top: 5px;
 }
 h6 {
     line-height: 26px;
+    padding-top: 5px;
 }
 label {
     font-family: "titleFont";
@@ -103,4 +105,13 @@ input[type="checkbox"] {
 }
 .empty-input::before {
     content: 'Lägg till namn';
+}
+.list-group-item-heading {
+    margin-bottom: 0;
+}
+.item-info {
+    margin-top: 13px;
+}
+.item-info input {
+    padding-top: 0;
 }
