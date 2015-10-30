@@ -3,7 +3,6 @@ var app = angular.module('CharacterSheet', [
     'mobile-angular-ui',
     //'mobile-angular-ui.gestures',
     'autosize',
-    'contenteditable',
     'puElasticInput'
 ]);
 
