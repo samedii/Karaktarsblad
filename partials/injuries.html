@@ -59,7 +59,10 @@
                                     ui-turn-off="itemDropdown{{$index}}">
 
                                     <li ng-click="item.showDetails = !item.showDetails">
-                                        <a>Visa/göm detaljer</a>
+                                        <a>
+                                            <span ng-show="!item.showDetails">Visa detaljer</span>
+                                            <span ng-show="item.showDetails">Göm detaljer</span>
+                                        </a>
                                     </li>
                                     <li ng-click="state.injuries.splice($index,1)">
                                         <a>Ta bort</a>
@@ -244,7 +247,10 @@
                                     ui-turn-off="itemDropdownScar{{$index}}">
 
                                     <li ng-click="item.showDetails = !item.showDetails">
-                                        <a>Visa/göm detaljer</a>
+                                        <a>
+                                            <span ng-show="!item.showDetails">Visa detaljer</span>
+                                            <span ng-show="item.showDetails">Göm detaljer</span>
+                                        </a>
                                     </li>
                                     <li ng-click="state.scars.splice($index,1)">
                                         <a>Ta bort</a>

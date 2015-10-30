@@ -112,7 +112,10 @@
                                     ui-turn-off="itemDropdown{{$index}}">
 
                                     <li ng-click="item.showDetails = !item.showDetails">
-                                        <a>Visa/göm detaljer</a>
+                                        <a>
+                                            <span ng-show="!item.showDetails">Visa detaljer</span>
+                                            <span ng-show="item.showDetails">Göm detaljer</span>
+                                        </a>
                                     </li>
                                     <li ng-click="state.inventory.splice($index,1)">
                                         <a>Ta bort</a>
