@@ -9,21 +9,24 @@ header('Access-Control-Max-Age: 86400');
 
 // Connecting, selecting database
 $link = mysql_connect('localhost', 'direwolf_se', 'gtrbbdET')
-    or die('Could not connect: ' . mysql_error());
-echo 'Connected successfully<br/>';
+    or die('{"error": "Could not connect to database"}');
 
-mysql_select_db('direwolf_se') or die('Could not select database<br/>');
-echo "Selected db successfully<br/>";
+
+mysql_select_db('direwolf_se') or die('{"error": "Could not select database"}');
+
+$postData = json_decode(file_get_contents("php://input"));
+$keyword = mysql_real_escape_string($postData->keyword);
+$state = mysql_real_escape_string($postData->state);
 
 // Performing SQL query
 $query = "REPLACE INTO 
 		`CharacterSheets` SET
-			`keyword` = '" .  mysql_real_escape_string($_POST['keyword']) . "',
-			`state` = '" . mysql_real_escape_string($_POST['state']) . "'";
+			`keyword` = '" .  $keyword . "',
+			`state` = '" . $state . "'";
 
-echo $query . '<br/>';
-$result = mysql_query($query) or die('Query failed: ' . mysql_error());
-echo "Successfully reported\n";
+$result = mysql_query($query) or die('{"error": "Query failed"}');
+
+echo '{}';
 
 // Closing connection
 mysql_close($link);

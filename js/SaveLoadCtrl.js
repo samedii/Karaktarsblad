@@ -4,36 +4,46 @@ app.controller('SaveLoadCtrl', function($scope, $http, $location, SharedState){
 
     $scope.load = function() {
 
-        $.getJSON(
-            'http://direwolf.se/mm/sheet/load.php', {
+        $http.post(
+            'http://direwolf.se/mm/sheet/load.php',
+            {
                 keyword: $scope.state.keyword || 'Exempel'
             },
-            function success(data, textStatus, jqXHR) {
-                $scope.$apply(function() {
-                    $.extend($scope.state,data);
-                    $location.path('/intro');
-                });
-            })
-            .fail(function(jqxhr, textStatus, error) {
-                $scope.$apply(function() {
+            {})
+            .then(function successCallback(response) {
+                if(response.data.error) {
                     SharedState.turnOn('modalKeywordNotFound');
-                });
+                }
+                else {
+                    angular.extend($scope.state,response.data);
+                    $location.path('/intro');
+                }
+            }, function errorCallback(response) {
+                console.error('Something went wrong when loading');
             });
 
     };
 
     $scope.save = function() {
 
-        $.post('http://direwolf.se/mm/sheet/save.php',
+        $http.post(
+            'http://direwolf.se/mm/sheet/save.php',
             {
                 keyword: $scope.state.keyword,
                 state: JSON.stringify($scope.state)
             },
-            function success(data, textStatus, jqXHR) {
-                $scope.$apply(function() {
+            {})
+            .then(function successCallback(response) {
+                if(response.data.error) {
+                    console.error('Server responded but something went wrong when saving');
+                }
+                else {
                     SharedState.turnOn('modalSaveSuccess');
-                });
+                }
+            }, function errorCallback(response) {
+                console.error('Something went wrong when saving');
             });
+
     };
 
     $scope.clear = function() {

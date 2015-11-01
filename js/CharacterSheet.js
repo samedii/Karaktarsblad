@@ -6,10 +6,6 @@ var app = angular.module('CharacterSheet', [
     'puElasticInput'
 ]);
 
-/*app.run(function($transform) {
-    window.$transform = $transform;
-});*/
-
 app.config(function($routeProvider) {
 
     $routeProvider.when('/intro', {
