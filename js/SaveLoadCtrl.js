@@ -26,6 +26,7 @@ app.controller('SaveLoadCtrl', function($scope, $http, $location, SharedState){
 
     $scope.save = function() {
 
+        delete $scope.state.error;
         $http.post(
             'http://direwolf.se/mm/sheet/save.php',
             {
