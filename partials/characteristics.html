@@ -161,7 +161,7 @@
                                             <span ng-show="item.showDetails">Göm detaljer</span>
                                         </a>
                                     </li>
-                                    <li ng-click="state.characteristics.splice($index,1)">
+                                    <li ng-click="state.characteristics.splice(state.characteristics.indexOf(item),1)">
                                         <a>Ta bort</a>
                                     </li>
                                 </ul>

@@ -99,7 +99,7 @@
                         <div class="hidden-xs col-sm-2 col-md-2 col-lg-2 item-info">{{moment(item.added).format('YYYY-MM-DD')}}</div>
                         <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">
                             <div class="btn-group pull-right">
-                                <a ui-turn-on="itemDropdown{{$index}}" class='btn'>
+                                <a ui-turn-on="itemDropdown{{$index}}" class="btn">
                                     <i class="fa fa-ellipsis-v"></i>
                                 </a>
                                 <ul
@@ -117,7 +117,7 @@
                                             <span ng-show="item.showDetails">Göm detaljer</span>
                                         </a>
                                     </li>
-                                    <li ng-click="state.inventory.splice($index,1)">
+                                    <li ng-click="state.inventory.splice(state.inventory.indexOf(item),1)">
                                         <a>Ta bort</a>
                                     </li>
                                 </ul>
